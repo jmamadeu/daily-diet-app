@@ -23,9 +23,9 @@ export const HomeScreen = () => {
 
       <View style={styles.mealsContainer}>
         <View style={styles.labelContainer}>
-          <Text style={theme.typography.bodyM}>Refeições</Text>
-        </View>
-
+           <Text style={theme.typography.bodyM}>Refeições</Text>
+        </View> 
+ 
         <TouchableOpacity style={styles.button} activeOpacity={0.8}>
           <View style={styles.buttonIcon}>
             <Plus size={18} color={theme.colors.white} />
@@ -33,6 +33,14 @@ export const HomeScreen = () => {
 
           <Text style={styles.buttonText}>Nova Refeição</Text>
         </TouchableOpacity>
+      </View>
+
+      <View>
+        <View>
+          <Text>
+            12.08.22
+          </Text>
+        </View>
       </View>
     </View>
   );
