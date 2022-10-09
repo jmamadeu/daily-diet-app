@@ -1,7 +1,7 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native"
 
-import { colors } from "./colors";
-import { Fonts } from "./fonts";
+import { colors } from "./colors"
+import { Fonts } from "./fonts"
 
 export const typography = StyleSheet.create({
   titleG: {
@@ -40,4 +40,10 @@ export const typography = StyleSheet.create({
     color: colors.gray[200],
     lineHeight: 18,
   },
-});
+  bodyXS: {
+    fontSize: 12,
+    fontFamily: Fonts.bold,
+    color: colors.gray[200],
+    lineHeight: 16,
+  },
+})

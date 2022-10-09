@@ -24,7 +24,7 @@
       "error",
       {},
       {
-        "usePrettierrc": true,
+        "usePrettierrc": true
       }
     ],
     "import/no-extraneous-dependencies": "off",
