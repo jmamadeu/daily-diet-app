@@ -1,23 +1,45 @@
+import { useNavigation } from "@react-navigation/native"
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { ArrowUpRight, Plus } from "phosphor-react-native"
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native"
 
 import { DietMealCard } from "~/components/diet-meal-card/diet-meal-card"
+import { StatInfoCard } from "~/components/stat-info-card/stat-info-card"
+import type { MainStackNavigatorParamsList } from "~/routes/router"
 import { theme } from "~/theme"
 
+type HomeScreenNavigationProp = NativeStackNavigationProp<
+  MainStackNavigatorParamsList,
+  "Home"
+>
+
 export const HomeScreen = () => {
+  const navigation = useNavigation<HomeScreenNavigationProp>()
+
+  const handleNavigateToStats = () => {
+    navigation.push("Stats")
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.cardStatsContainer}>
-        <View style={styles.cardStats}>
+        <Pressable style={styles.cardStats} onPress={handleNavigateToStats}>
           <View style={styles.statsIcon}>
             <ArrowUpRight size={24} color={theme.colors.green.dark} />
           </View>
 
-          <View style={styles.statsContent}>
-            <Text style={theme.typography.titleG}>90,89 %</Text>
-            <Text style={theme.typography.bodyS}>Meals within the diet</Text>
-          </View>
-        </View>
+          <StatInfoCard
+            title="90%"
+            description="Meals within the diet"
+            isLarge
+          />
+        </Pressable>
       </View>
 
       <View style={styles.mealsContainer}>
@@ -94,10 +116,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
     marginTop: 8,
   },
-  statsContent: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
+
   mealsContainer: {
     marginTop: 40,
   },

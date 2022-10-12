@@ -1,16 +1,17 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
 
-import { SvgLogo } from "~/assets/logo";
-import { AvatarImage } from "~/components/avatar-image/avatar-image";
-import { HomeScreen } from "~/screens";
+import { SvgLogo } from "~/assets/logo"
+import { AvatarImage } from "~/components/avatar-image/avatar-image"
+import { HomeScreen, StatsScreen } from "~/screens"
 
-type MainStackNavigatorParamsList = {
-  Home: undefined;
-};
+export type MainStackNavigatorParamsList = {
+  Home: undefined
+  Stats: undefined
+}
 
 const MainStackNavigator =
-  createNativeStackNavigator<MainStackNavigatorParamsList>();
+  createNativeStackNavigator<MainStackNavigatorParamsList>()
 
 export const Router = () => {
   return (
@@ -29,7 +30,13 @@ export const Router = () => {
             headerRight: () => <AvatarImage />,
           }}
         />
+
+        <MainStackNavigator.Screen
+          component={StatsScreen}
+          name="Stats"
+          options={{ headerShown: false }}
+        />
       </MainStackNavigator.Navigator>
     </NavigationContainer>
-  );
-};
+  )
+}
