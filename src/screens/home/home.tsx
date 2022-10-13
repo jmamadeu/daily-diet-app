@@ -26,6 +26,10 @@ export const HomeScreen = () => {
     navigation.push("Stats")
   }
 
+  const handleNavigateToSaveScreen = () => {
+    navigation.push("SaveMeal")
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.cardStatsContainer}>
@@ -47,7 +51,11 @@ export const HomeScreen = () => {
           <Text style={theme.typography.bodyM}>Meals</Text>
         </View>
 
-        <TouchableOpacity style={styles.button} activeOpacity={0.8}>
+        <TouchableOpacity
+          style={styles.button}
+          activeOpacity={0.8}
+          onPress={handleNavigateToSaveScreen}
+        >
           <View style={styles.buttonIcon}>
             <Plus size={18} color={theme.colors.white} />
           </View>

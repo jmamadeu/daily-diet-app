@@ -1,15 +1,14 @@
-import { Pressable, StyleSheet, Text, View } from "react-native"
 import { MaterialIcons } from "@expo/vector-icons"
-import type { NativeStackNavigationProp } from "@react-navigation/native-stack"
-import { useEffect } from "react"
 import { useNavigation } from "@react-navigation/native"
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack"
+import { Pressable, StyleSheet, Text, View } from "react-native"
 
 import { StatInfoCardContainer } from "./components/stat-info-card-container"
 
-import { theme } from "~/theme"
-import { useGetStatusBarHeight } from "~/hooks/use-get-status-bar-height"
 import { StatInfoCard } from "~/components/stat-info-card/stat-info-card"
+import { useGetStatusBarHeight } from "~/hooks/use-get-status-bar-height"
 import type { MainStackNavigatorParamsList } from "~/routes/router"
+import { theme } from "~/theme"
 
 type StatsScreenNavigationProp = NativeStackNavigationProp<
   MainStackNavigatorParamsList,
