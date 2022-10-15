@@ -4,12 +4,18 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { SvgLogo } from "~/assets/logo"
 import { AvatarImage } from "~/components/avatar-image/avatar-image"
 import { MealHeader } from "~/components/meal-header/meal-header"
-import { HomeScreen, SaveMealScreen, StatsScreen } from "~/screens"
+import {
+  FeedbackScreen,
+  HomeScreen,
+  SaveMealScreen,
+  StatsScreen,
+} from "~/screens"
 
 export type MainStackNavigatorParamsList = {
   Home: undefined
   Stats: undefined
   SaveMeal: undefined
+  Feedback: undefined
 }
 
 const MainStackNavigator =
@@ -49,6 +55,17 @@ export const Router = () => {
           <MainStackNavigator.Screen
             component={SaveMealScreen}
             name="SaveMeal"
+          />
+        </MainStackNavigator.Group>
+
+        <MainStackNavigator.Group
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <MainStackNavigator.Screen
+            component={FeedbackScreen}
+            name="Feedback"
           />
         </MainStackNavigator.Group>
       </MainStackNavigator.Navigator>

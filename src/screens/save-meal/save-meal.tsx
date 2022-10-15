@@ -1,3 +1,4 @@
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import {
   Pressable,
   StyleSheet,
@@ -7,10 +8,24 @@ import {
   View,
 } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
+import { useNavigation } from "@react-navigation/native"
 
 import { theme } from "~/theme"
+import type { MainStackNavigatorParamsList } from "~/routes/router"
+import { Button } from "~/components/button/button"
+
+type SaveMealScreenNavigationProp = NativeStackNavigationProp<
+  MainStackNavigatorParamsList,
+  "SaveMeal"
+>
 
 export const SaveMealScreen = () => {
+  const { navigate } = useNavigation<SaveMealScreenNavigationProp>()
+
+  const handleNavigateToFeedback = () => {
+    navigate("Feedback")
+  }
+
   return (
     <View style={styles.container}>
       <SafeAreaView style={styles.content}>
@@ -74,9 +89,7 @@ export const SaveMealScreen = () => {
             </View>
           </View>
         </View>
-        <TouchableOpacity style={styles.saveButton} activeOpacity={0.8}>
-          <Text style={styles.saveButtonText}>Save meal</Text>
-        </TouchableOpacity>
+        <Button onPress={handleNavigateToFeedback}>Save meal</Button>
       </SafeAreaView>
     </View>
   )
@@ -112,6 +125,7 @@ const styles = StyleSheet.create({
   },
   inputArea: {
     height: 120,
+    paddingTop: 10,
   },
   formGap: {
     height: 30,
@@ -140,17 +154,5 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-  },
-  saveButton: {
-    backgroundColor: theme.colors.gray[200],
-    borderRadius: 6,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
-    height: 50,
-  },
-  saveButtonText: {
-    ...theme.typography.titleXS,
-    color: "#fff",
   },
 })
