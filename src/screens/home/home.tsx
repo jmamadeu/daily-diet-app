@@ -27,7 +27,15 @@ export const HomeScreen = () => {
   }
 
   const handleNavigateToSaveScreen = () => {
-    navigation.push("SaveMeal")
+    navigation.push("SaveMeal", {
+      headerTitle: "New Meal",
+    })
+  }
+
+  const handleNavigateToMealDetails = () => {
+    navigation.push("MealDetails", {
+      headerTitle: "Meal",
+    })
   }
 
   return (
@@ -69,21 +77,15 @@ export const HomeScreen = () => {
           <Text style={theme.typography.titleS}>12.08.22</Text>
           <View style={styles.dietCards}>
             <View style={styles.dietCard}>
-              <DietMealCard status="inDiet" />
-            </View>
-            <View style={styles.dietCard}>
-              <DietMealCard status="outDiet" />
-            </View>
-            <View style={styles.dietCard}>
-              <DietMealCard status="outDiet" />
-            </View>
-            <View style={styles.dietCard}>
-              <DietMealCard status="outDiet" />
+              <DietMealCard
+                onPress={handleNavigateToMealDetails}
+                status="inDiet"
+              />
             </View>
           </View>
         </View>
 
-        <View>
+        {/* <View>
           <Text style={theme.typography.titleS}>12.08.22</Text>
           <View style={styles.dietCards}>
             <View style={styles.dietCard}>
@@ -99,7 +101,7 @@ export const HomeScreen = () => {
               <DietMealCard status="outDiet" />
             </View>
           </View>
-        </View>
+        </View> */}
       </View>
     </View>
   )

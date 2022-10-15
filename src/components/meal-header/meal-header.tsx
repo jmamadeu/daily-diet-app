@@ -6,10 +6,12 @@ import { useGetStatusBarHeight } from "~/hooks/use-get-status-bar-height"
 
 type MealHeaderProps = {
   onBackButtonPress: () => void
+  title: string
 }
 
 export const MealHeader: React.FC<MealHeaderProps> = ({
   onBackButtonPress,
+  title,
 }) => {
   const StatusBarHeight = useGetStatusBarHeight()
 
@@ -24,7 +26,7 @@ export const MealHeader: React.FC<MealHeaderProps> = ({
           />
         </Pressable>
 
-        <Text style={theme.typography.titleS}>New meal</Text>
+        <Text style={theme.typography.titleS}>{title}</Text>
 
         <View />
       </View>

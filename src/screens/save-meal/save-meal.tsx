@@ -13,6 +13,7 @@ import { useNavigation } from "@react-navigation/native"
 import { theme } from "~/theme"
 import type { MainStackNavigatorParamsList } from "~/routes/router"
 import { Button } from "~/components/button/button"
+import { BulletBox } from "~/components/bullet-box/bullet-box"
 
 type SaveMealScreenNavigationProp = NativeStackNavigationProp<
   MainStackNavigatorParamsList,
@@ -68,22 +69,12 @@ export const SaveMealScreen = () => {
 
             <View style={styles.dateTimeContainer}>
               <TouchableOpacity style={styles.button}>
-                <View
-                  style={[
-                    styles.bullet,
-                    { backgroundColor: theme.colors.green.dark },
-                  ]}
-                />
+                <BulletBox color={theme.colors.green.dark} />
                 <Text style={styles.buttonTitle}>Yes</Text>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.button}>
-                <View
-                  style={[
-                    styles.bullet,
-                    { backgroundColor: theme.colors.red.dark },
-                  ]}
-                />
+                <BulletBox color={theme.colors.red.dark} />
                 <Text style={styles.buttonTitle}>No</Text>
               </TouchableOpacity>
             </View>
@@ -149,10 +140,5 @@ const styles = StyleSheet.create({
   buttonTitle: {
     ...theme.typography.titleXS,
     marginLeft: 6,
-  },
-  bullet: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
   },
 })

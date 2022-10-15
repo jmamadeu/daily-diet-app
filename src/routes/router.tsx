@@ -10,12 +10,18 @@ import {
   SaveMealScreen,
   StatsScreen,
 } from "~/screens"
+import { MealDetailsScreen } from "~/screens/meal-details/meal-details"
 
 export type MainStackNavigatorParamsList = {
   Home: undefined
   Stats: undefined
-  SaveMeal: undefined
+  SaveMeal: {
+    headerTitle: string
+  }
   Feedback: undefined
+  MealDetails: {
+    headerTitle: string
+  }
 }
 
 const MainStackNavigator =
@@ -46,15 +52,27 @@ export const Router = () => {
         />
 
         <MainStackNavigator.Group
-          screenOptions={({ navigation }) => ({
+          screenOptions={({ navigation, route }) => ({
             header() {
-              return <MealHeader onBackButtonPress={navigation.goBack} />
+              return (
+                <MealHeader
+                  title={route.params?.headerTitle ?? ""}
+                  onBackButtonPress={navigation.goBack}
+                />
+              )
             },
           })}
         >
           <MainStackNavigator.Screen
             component={SaveMealScreen}
             name="SaveMeal"
+          />
+          <MainStackNavigator.Screen
+            component={MealDetailsScreen}
+            name="MealDetails"
+            options={{
+              title: "Meal",
+            }}
           />
         </MainStackNavigator.Group>
 

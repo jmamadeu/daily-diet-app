@@ -1,15 +1,19 @@
 /* eslint-disable react-native/no-unused-styles */
-import { StyleSheet, Text, View } from "react-native"
+import { Pressable, StyleSheet, Text, View } from "react-native"
 
 import { theme } from "~/theme"
 
 type DietMealCardProps = {
   status: "inDiet" | "outDiet"
+  onPress: () => void
 }
 
-export const DietMealCard: React.FC<DietMealCardProps> = ({ status }) => {
+export const DietMealCard: React.FC<DietMealCardProps> = ({
+  status,
+  onPress,
+}) => {
   return (
-    <View style={styles.dietCardContainer}>
+    <Pressable onPress={onPress} style={styles.dietCardContainer}>
       <View style={styles.content}>
         <Text
           style={[theme.typography.bodyXS, { color: theme.colors.gray[100] }]}
@@ -22,7 +26,7 @@ export const DietMealCard: React.FC<DietMealCardProps> = ({ status }) => {
       </View>
 
       <View style={[styles.status, styles[status]]} />
-    </View>
+    </Pressable>
   )
 }
 
