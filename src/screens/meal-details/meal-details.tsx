@@ -1,9 +1,5 @@
 import { StyleSheet, Text, View } from "react-native"
-import {
-  AntDesign,
-  MaterialCommunityIcons,
-  MaterialIcons,
-} from "@expo/vector-icons"
+import { AntDesign, MaterialIcons } from "@expo/vector-icons"
 
 import { BulletBox } from "~/components/bullet-box/bullet-box"
 import { Button } from "~/components/button/button"
